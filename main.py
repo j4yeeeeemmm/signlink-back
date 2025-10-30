@@ -5,12 +5,20 @@ from fastapi.middleware.cors import CORSMiddleware
 import tensorflow as tf
 
 app = FastAPI()
+
+# ✅ Allow frontend to access the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # change to your frontend URL for security later
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ✅ Root route — this fixes the Render 404 Not Found
+@app.get("/")
+def read_root():
+    return {"message": "SignLink backend is running 🚀"}
 
 T = 60
 MODEL_PATH = "models/bilstm_attention.keras"
