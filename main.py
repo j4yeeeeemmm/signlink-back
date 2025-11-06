@@ -21,7 +21,7 @@ def read_root():
     return {"message": "SignLink backend is running 🚀"}
 
 T = 60
-MODEL_PATH = "models/bilstm_attention.keras"
+MODEL_PATH = "models/bilstm_attention_pipino.keras"
 SCALER_PATH = "models/scaler_pipino.pkl"
 ENCODER_PATH = "models/label_encoder_pipino.pkl"
 
